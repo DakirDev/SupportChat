@@ -1,0 +1,101 @@
+#################################################
+###                                           ###
+##                  SupportChat                ##
+#                    by Dakir                   #
+###                                           ###
+#################################################
+#Please don't edit this
+configversion: 1.0
+
+
+#######################################
+#               General               #
+#######################################
+
+#This is the prefix that will be displayed
+#in front of all messages
+prefix: '&8[&6Support&8] &e'
+
+#If this is true the plugin will connecting to the database
+#which is set in the "mysql.yml" file in the plugin folder.
+#In this database will be saved the number of supports of
+#all supporters.
+enableMySQL: false
+
+#The color of the supporters name in support chat
+supporterColor: '&c'
+
+#The color of the users name in support chat
+userColor: '&f'
+
+#The color of the text in the support chat
+chatColor: '&e'
+
+#If this is true the plugin will inform the 
+#supporters if players are in queue
+enableQueueNotification: true
+
+#This is the interval in seconds how often the 
+#plugin inform the supporters of queued players
+queueNotificationInterval: 60
+
+
+
+########################################
+#               Messages               #
+########################################
+reload: 'Config has been reloaded!'
+noPermission: 'You have no permission for that!'
+noNumber: 'A number may not contain any letters!'
+commandNotExists: 'This command does not exist!'
+playerNotFound: 'Player not found!'
+playerIsSupporter: 'This player is a team member!'
+notInSupportChat: 'You are not in a support chat!'
+inSupportChat: 'You are already in a support chat!'
+playerIsInSupportChat: '&f%player% &eis already in a support chat!'
+noSupportNeeded: 'No one needs support right now!'
+noSupporterOnline: 'Currently no team member is online! Please try again later.'
+noSupportRequest: 'You can not submit a support request!'
+joinSupportQueue: 'You are in the queue now.'
+leaveSupportQueue: 'You left the queue.'
+needSupport: '&f%player% &eneeds support!'
+needNoSupport: '&f%player% &edoes not need support anymore!'
+onePlayerNeedSupport: 'There is currently &f%number% &eplayer in the queue:'
+morePlayerNeedSupport: 'There are currently &f%number% &eplayers in the queue:'
+playerInQueue: '&8» &f%player%'
+closeSupportChat: 'The support chat has been closed.'
+openSupportChat: 'You are now in support chat.'
+openSupportChat_head: 'Chat Head: &c%player%'
+openSupportChat_user: 'Player: &f%player%'
+openSupportChat_space: ''
+openSupportChat_hellomessage: '&c%player% &8» &eHello, how can I help you?'
+mysqlNotEnabled: 'The MySQL database is not activated in the config!'
+dataPlayerStats: 'The player &f%player% &ehas already made &f%number% &esupport(s).'
+dataPlayerDeleted: 'The player &f%player% &ewas successfully deleted from the database.'
+dataPlayerSupportsAdded: 'Added &f%number% &esupport(s) to player &f%player%&e.'
+dataPlayerSupportsRemoved: 'Removed &f%number% &esupport(s) of player &f%player%&e.'
+dataPlayerSupportsSet: 'The supports(s) of &f%player% &ewere set to &f%number%&e.'
+dataPlayerList_header: '&8&m]&7&m--------&8&m[&r &e♦ &8&m]&7&m--------&8&m['
+dataPlayerList_entry: '&6%id%. &f%player% &8- &e%number%'
+dataPlayerList_footer: '&8&m]&7&m--------&8&m[&r &e♦ &8&m]&7&m--------&8&m['
+
+
+
+##################################################
+#               Help menu messages               #
+##################################################
+header: '&8&m]&7&m------------------------&8&m[&r &e♦ &8&m]&7&m------------------------&8&m['
+sc_help: '&6/sc help &8- &fShows this menu'
+sc: '&6/sc &8- &fEnter/Leave the queue'
+sc_list: '&6/sc list &8- &fList of queue'
+sc_close: '&6/sc close &8- &fClose the support chat'
+sc_open: '&6/sc open &8- &fOpens support chat with last support request'
+sc_open_player: '&6/sc open <player> &8- &fOpens support chat with specific player'
+sc_data_list: '&6/sc data list &8- &fShows the support list'
+sc_data_stats: '&6/sc data stats <player> &8- &fShows the supports of a player'
+sc_data_delete: '&6/sc data delete <player> &8- &fDeletes a player from the database'
+sc_data_add: '&6/sc data add <player> <number> &8- &fAdds supports to a player'
+sc_data_remove: '&6/sc data remove <player> <number> &8- &fRemoves supports of a player'
+sc_data_set: '&6/sc data set <player> <number> &8- &fSets the supports of a player'
+sc_reload: '&6/sc reload &8- &fReloads the config'
+footer: '&8&m]&7&m------------------------&8&m[&r &e♦ &8&m]&7&m------------------------&8&m['

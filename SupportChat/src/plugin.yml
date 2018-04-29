@@ -1,0 +1,7 @@
+name: SupportChat
+version: 1.0
+author: Dakir
+main: de.dakir.supportchat.Main
+commands:
+  support:
+    aliases: [sup, sc]
