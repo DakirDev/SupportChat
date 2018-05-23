@@ -23,7 +23,7 @@ public class Support implements CommandExecutor{
 		if(sender instanceof Player) {
 			Player p = (Player)sender;
 			if(args.length == 0) {
-				if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.use") || p.hasPermission("bungeesupportchat.open")) {
+				if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.open")) {
 					p.sendMessage(Strings.prefix + Strings.noSupportRequest);
 				} else {
 					if(HexxAPI.isSupporterOnline()) {
@@ -46,7 +46,7 @@ public class Support implements CommandExecutor{
 				}
 			} else if(args.length == 1) {
 				if(args[0].equalsIgnoreCase("list")) {
-					if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.use") || p.hasPermission("bungeesupportchat.list")) {
+					if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.list")) {
 						if(Data.supports.size() == 0) {
 							p.sendMessage(Strings.prefix + Strings.noSupportNeeded);
 						} else if(Data.supports.size() == 1) {
@@ -62,7 +62,7 @@ public class Support implements CommandExecutor{
 						p.sendMessage(Strings.prefix + Strings.noPermission);
 					}
 				} else if(args[0].equalsIgnoreCase("open")) {
-					if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.use") || p.hasPermission("bungeesupportchat.open")) {
+					if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.open")) {
 						if(Data.supports.size() == 0) {
 							p.sendMessage(Strings.prefix + Strings.noSupportNeeded);
 						} else {
@@ -73,7 +73,7 @@ public class Support implements CommandExecutor{
 						p.sendMessage(Strings.prefix + Strings.noPermission);
 					}
 				} else if(args[0].equalsIgnoreCase("close")) {
-					if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.use") || p.hasPermission("bungeesupportchat.close")) {
+					if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.close")) {
 						if(HexxAPI.isInSupportChat(p)) {
 							HexxAPI.closeSupportChat(p);
 						} else {
@@ -83,27 +83,27 @@ public class Support implements CommandExecutor{
 						p.sendMessage(Strings.prefix + Strings.noPermission);
 					}
 				} else if (args[0].equalsIgnoreCase("help")) {
-					if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.use") || p.hasPermission("bungeesupportchat.help")) {
+					if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.help")) {
 						p.sendMessage(Strings.header);
 						p.sendMessage(Strings.sc_help);
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.use")) { p.sendMessage(Strings.sc); }
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.use") || p.hasPermission("bungeesupportchat.list")) { p.sendMessage(Strings.sc_list); }
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.use") || p.hasPermission("bungeesupportchat.close")) { p.sendMessage(Strings.sc_close); }
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.use") || p.hasPermission("bungeesupportchat.open")) { p.sendMessage(Strings.sc_open); }
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.use") || p.hasPermission("bungeesupportchat.open")) { p.sendMessage(Strings.sc_open_player); }
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.data.*") || p.hasPermission("bungeesupportchat.data.list")) { p.sendMessage(Strings.sc_data_list); }
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.data.*") || p.hasPermission("bungeesupportchat.data.stats")) { p.sendMessage(Strings.sc_data_stats); }
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.data.*") || p.hasPermission("bungeesupportchat.data.delete")) { p.sendMessage(Strings.sc_data_delete); }
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.data.*") || p.hasPermission("bungeesupportchat.data.add")) { p.sendMessage(Strings.sc_data_add); }
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.data.*") || p.hasPermission("bungeesupportchat.data.remove")) { p.sendMessage(Strings.sc_data_remove); }
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.data.*") || p.hasPermission("bungeesupportchat.data.set")) { p.sendMessage(Strings.sc_data_set); }
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.reload")) { p.sendMessage(Strings.sc_reload); }
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use")) { p.sendMessage(Strings.sc); }
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.list")) { p.sendMessage(Strings.sc_list); }
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.close")) { p.sendMessage(Strings.sc_close); }
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.open")) { p.sendMessage(Strings.sc_open); }
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.open")) { p.sendMessage(Strings.sc_open_player); }
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.data.*") || p.hasPermission("supportchat.data.list")) { p.sendMessage(Strings.sc_data_list); }
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.data.*") || p.hasPermission("supportchat.data.stats")) { p.sendMessage(Strings.sc_data_stats); }
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.data.*") || p.hasPermission("supportchat.data.delete")) { p.sendMessage(Strings.sc_data_delete); }
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.data.*") || p.hasPermission("supportchat.data.add")) { p.sendMessage(Strings.sc_data_add); }
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.data.*") || p.hasPermission("supportchat.data.remove")) { p.sendMessage(Strings.sc_data_remove); }
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.data.*") || p.hasPermission("supportchat.data.set")) { p.sendMessage(Strings.sc_data_set); }
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.reload")) { p.sendMessage(Strings.sc_reload); }
 						p.sendMessage(Strings.footer);
 					} else {
 						p.sendMessage(Strings.prefix + Strings.noPermission);
 					}
 				} else if(args[0].equalsIgnoreCase("reload")) {
-					if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.reload")) {
+					if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.reload")) {
 						ConfigManager.load();
 						PluginManager.reloadScheudler();
 						sender.sendMessage(Strings.prefix + Strings.reload);
@@ -115,10 +115,10 @@ public class Support implements CommandExecutor{
 				}
 			} else if(args.length == 2) {
 				if(args[0].equalsIgnoreCase("open")) {
-					if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.use") || p.hasPermission("bungeesupportchat.open")) {
+					if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.open")) {
 						try {
 							Player o = Bukkit.getPlayer(args[1]);
-							if(o.hasPermission("bungeesupportchat.*") || o.hasPermission("bungeesupportchat.use") || o.hasPermission("bungeesupportchat.open")) {
+							if(o.hasPermission("supportchat.*") || o.hasPermission("supportchat.use") || o.hasPermission("supportchat.open")) {
 								p.sendMessage(Strings.prefix + Strings.playerIsSupporter);
 							} else {
 								HexxAPI.openSupportChat(p, o);
@@ -130,7 +130,7 @@ public class Support implements CommandExecutor{
 						p.sendMessage(Strings.prefix + Strings.noPermission);
 					}
 				} else if(args[0].equalsIgnoreCase("data") && args[1].equalsIgnoreCase("list")) {
-					if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.data.*") || p.hasPermission("bungeesupportchat.data.list")) {
+					if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.data.*") || p.hasPermission("supportchat.data.list")) {
 						if(Data.enableMySQL) {
 							HashMap<Integer, String> list = MySQLData.getList();
 							p.sendMessage(Strings.dataPlayerList_header);
@@ -151,7 +151,7 @@ public class Support implements CommandExecutor{
 			} else if(args.length == 3) {
 				if(args[0].equalsIgnoreCase("data")) {
 					if(args[1].equalsIgnoreCase("stats")) {
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.data.*") || p.hasPermission("bungeesupportchat.data.stats")) {
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.data.*") || p.hasPermission("supportchat.data.stats")) {
 							if(Data.enableMySQL) {
 								String player = args[2];
 								if(MySQLData.isNameExists(player)) {
@@ -167,7 +167,7 @@ public class Support implements CommandExecutor{
 							p.sendMessage(Strings.prefix + Strings.noPermission);
 						}
 					} else if(args[1].equalsIgnoreCase("delete")) {
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.data.*") || p.hasPermission("bungeesupportchat.data.delete")) {
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.data.*") || p.hasPermission("supportchat.data.delete")) {
 							if(Data.enableMySQL) {
 								String player = args[2];
 								if(MySQLData.isNameExists(player)) {
@@ -191,7 +191,7 @@ public class Support implements CommandExecutor{
 			} else if(args.length == 4) {
 				if(args[0].equalsIgnoreCase("data")) {
 					if(args[1].equalsIgnoreCase("add")) {
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.data.*") || p.hasPermission("bungeesupportchat.data.add")) {
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.data.*") || p.hasPermission("supportchat.data.add")) {
 							if(Data.enableMySQL) {
 								String player = args[2];
 								if(MySQLData.isNameExists(player)) {
@@ -212,7 +212,7 @@ public class Support implements CommandExecutor{
 							p.sendMessage(Strings.prefix + Strings.noPermission);
 						}
 					} else if(args[1].equalsIgnoreCase("remove")) {
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.data.*") || p.hasPermission("bungeesupportchat.data.remove")) {
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.data.*") || p.hasPermission("supportchat.data.remove")) {
 							if(Data.enableMySQL) {
 								String player = args[2];
 								if(MySQLData.isNameExists(player)) {
@@ -233,7 +233,7 @@ public class Support implements CommandExecutor{
 							p.sendMessage(Strings.prefix + Strings.noPermission);
 						}
 					} else if(args[1].equalsIgnoreCase("set")) {
-						if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.data.*") || p.hasPermission("bungeesupportchat.data.set")) {
+						if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.data.*") || p.hasPermission("supportchat.data.set")) {
 							if(Data.enableMySQL) {
 								String player = args[2];
 								if(MySQLData.isNameExists(player)) {

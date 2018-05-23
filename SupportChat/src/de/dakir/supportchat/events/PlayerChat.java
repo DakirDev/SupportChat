@@ -20,7 +20,7 @@ public class PlayerChat implements Listener {
         Player p = e.getPlayer();
         if(HexxAPI.isInSupportChat(p)){
         	String namecolor = Strings.userColor;
-        	if(p.hasPermission("bungeesupportchat.*") || p.hasPermission("bungeesupportchat.use") || p.hasPermission("bungeesupportchat.open")){
+        	if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.open")){
         		namecolor = Strings.supporterColor;
         	}
         	
