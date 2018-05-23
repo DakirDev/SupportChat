@@ -8,7 +8,7 @@ public class ConfigBackup {
 	public static boolean enableMySQL = false;
 	public static String supporterColor = "&c";
 	public static String userColor = "&f";
-	public static String chatColor = "&e";
+	public static String chatColor = "&b";
 	public static boolean enableQueueNotification = true;
 	public static int queueNotificationInterval = 60;
 	

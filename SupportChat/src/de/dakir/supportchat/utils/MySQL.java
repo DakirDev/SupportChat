@@ -25,7 +25,7 @@ public class MySQL {
 		if(!isConnected()){
 			try {
 				con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?autoReconnect=true&useSSL=false", username, password);
-				System.out.println("[BungeeSupportChat-MySQL] Connection established!");
+				System.out.println("[SupportChat-MySQL] Connection established!");
 				
 				onReconnectScheduler();
 			} catch (SQLException e) {
@@ -38,7 +38,7 @@ public class MySQL {
 		if(isConnected()){
 			try {
 				con.close();
-				System.out.println("[BungeeSupportChat-MySQL] Connection closed!");
+				System.out.println("[SupportChat-MySQL] Connection closed!");
 				
 				Bukkit.getScheduler().cancelTask(MySQLSchedulerID);
 			} catch (SQLException e) {
@@ -60,7 +60,7 @@ public class MySQL {
             try {
             	con.close();
             } catch(SQLException e) {
-                System.err.println("[BungeeSupportChat-MySQL] Connection could not be disconnected!");
+                System.err.println("[SupportChat-MySQL] Connection could not be disconnected!");
                 e.printStackTrace();
             }
         }
@@ -70,7 +70,7 @@ public class MySQL {
                 try {
                     con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?autoReconnect=true&useSSL=false", username, password);
                 } catch(SQLException e) {
-                    System.err.println("[BungeeSupportChat-MySQL] Connection failed!");
+                    System.err.println("[SupportChat-MySQL] Connection failed!");
                     e.printStackTrace();
                 }
             }
