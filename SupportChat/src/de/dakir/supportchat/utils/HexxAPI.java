@@ -107,7 +107,7 @@ public class HexxAPI {
             return;
         }
 
-        if (PluginManager.nmsver.startsWith("v1_12_")) {
+        if (PluginManager.nmsver.startsWith("v1_12_") || PluginManager.nmsver.startsWith("v1_13_")) {
             sendActionBarPost112(player, message);
         } else {
             sendActionBarPre112(player, message);
