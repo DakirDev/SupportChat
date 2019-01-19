@@ -83,6 +83,7 @@ public class ConfigManager {
         Strings.openSupportChat_space = ChatColor.translateAlternateColorCodes('&', config.getString("openSupportChat_space"));
         Strings.openSupportChat_hellomessage = ChatColor.translateAlternateColorCodes('&', config.getString("openSupportChat_hellomessage"));
         Strings.mysqlNotEnabled = ChatColor.translateAlternateColorCodes('&', config.getString("mysqlNotEnabled"));
+        Strings.dataSupportsReset = ChatColor.translateAlternateColorCodes('&', config.getString("dataSupportsReset"));
         Strings.dataPlayerStats = ChatColor.translateAlternateColorCodes('&', config.getString("dataPlayerStats"));
         Strings.dataPlayerDeleted = ChatColor.translateAlternateColorCodes('&', config.getString("dataPlayerDeleted"));
         Strings.dataPlayerSupportsAdded = ChatColor.translateAlternateColorCodes('&', config.getString("dataPlayerSupportsAdded"));
@@ -105,6 +106,7 @@ public class ConfigManager {
         Strings.sc_data_add = ChatColor.translateAlternateColorCodes('&', config.getString("sc_data_add"));
         Strings.sc_data_remove = ChatColor.translateAlternateColorCodes('&', config.getString("sc_data_remove"));
         Strings.sc_data_set = ChatColor.translateAlternateColorCodes('&', config.getString("sc_data_set"));
+        Strings.sc_data_reset = ChatColor.translateAlternateColorCodes('&', config.getString("sc_data_reset"));
         Strings.sc_reload = ChatColor.translateAlternateColorCodes('&', config.getString("sc_reload"));
         Strings.footer = ChatColor.translateAlternateColorCodes('&', config.getString("footer"));
         
@@ -161,6 +163,7 @@ public class ConfigManager {
 		if(config.contains("openSupportChat_space")) ConfigBackup.openSupportChat_space = config.getString("openSupportChat_space");
         if(config.contains("openSupportChat_hellomessage")) ConfigBackup.openSupportChat_hellomessage = config.getString("openSupportChat_hellomessage");
         if(config.contains("mysqlNotEnabled")) ConfigBackup.mysqlNotEnabled = config.getString("mysqlNotEnabled");
+        if(config.contains("dataSupportsReset")) ConfigBackup.dataSupportsReset = config.getString("dataSupportsReset");
         if(config.contains("dataPlayerStats")) ConfigBackup.dataPlayerStats = config.getString("dataPlayerStats");
         if(config.contains("dataPlayerDeleted")) ConfigBackup.dataPlayerDeleted = config.getString("dataPlayerDeleted");
         if(config.contains("dataPlayerSupportsAdded")) ConfigBackup.dataPlayerSupportsAdded = config.getString("dataPlayerSupportsAdded");
@@ -183,6 +186,7 @@ public class ConfigManager {
         if(config.contains("sc_data_add")) ConfigBackup.sc_data_add = config.getString("sc_data_add");
         if(config.contains("sc_data_remove")) ConfigBackup.sc_data_remove = config.getString("sc_data_remove");
         if(config.contains("sc_data_set")) ConfigBackup.sc_data_set = config.getString("sc_data_set");
+        if(config.contains("sc_data_reset")) ConfigBackup.sc_data_reset = config.getString("sc_data_reset");
         if(config.contains("sc_reload")) ConfigBackup.sc_reload = config.getString("sc_reload");
         if(config.contains("footer")) ConfigBackup.footer = config.getString("footer");
 	}
@@ -235,6 +239,7 @@ public class ConfigManager {
 		setString("openSupportChat_space", ConfigBackup.openSupportChat_space);
 		setString("openSupportChat_hellomessage", ConfigBackup.openSupportChat_hellomessage);
 		setString("mysqlNotEnabled", ConfigBackup.mysqlNotEnabled);
+		setString("dataSupportsReset", ConfigBackup.dataSupportsReset);
 		setString("dataPlayerStats", ConfigBackup.dataPlayerStats);
 		setString("dataPlayerDeleted", ConfigBackup.dataPlayerDeleted);
 		setString("dataPlayerSupportsAdded", ConfigBackup.dataPlayerSupportsAdded);
@@ -257,6 +262,7 @@ public class ConfigManager {
 		setString("sc_data_add", ConfigBackup.sc_data_add);
 		setString("sc_data_remove", ConfigBackup.sc_data_remove);
 		setString("sc_data_set", ConfigBackup.sc_data_set);
+		setString("sc_data_reset", ConfigBackup.sc_data_reset);
 		setString("sc_reload", ConfigBackup.sc_reload);
 		setString("footer", ConfigBackup.footer);
 		

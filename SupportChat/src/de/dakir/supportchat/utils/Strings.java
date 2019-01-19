@@ -3,7 +3,7 @@ package de.dakir.supportchat.utils;
 public class Strings {
 
 	public static String cprefix = "[SupportChat] ";
-	public static String onlyPlayer = cprefix + "You are not a player!";
+	public static String onlyPlayer = cprefix + "You're not a player!";
 	
 	public static String prefix;
 	public static String reload;
@@ -36,6 +36,7 @@ public class Strings {
 	public static String openSupportChat_space;
 	public static String openSupportChat_hellomessage;
 	public static String mysqlNotEnabled;
+	public static String dataSupportsReset;
 	public static String dataPlayerStats;
 	public static String dataPlayerDeleted;
 	public static String dataPlayerSupportsAdded;
@@ -58,6 +59,7 @@ public class Strings {
 	public static String sc_data_add;
 	public static String sc_data_remove;
 	public static String sc_data_set;
+	public static String sc_data_reset;
 	public static String sc_reload;
 	public static String footer;
 }
