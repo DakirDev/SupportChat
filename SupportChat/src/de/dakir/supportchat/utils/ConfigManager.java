@@ -48,6 +48,21 @@ public class ConfigManager {
         }
     		
         FileConfiguration config = YamlConfiguration.loadConfiguration(new File("plugins/SupportChat/config.yml"));
+        
+        //Updatechecker
+  		try {
+  			String version = Main.instance.getDescription().getVersion();
+  			if(!(config.getString("configversion").equalsIgnoreCase(version))){
+  				System.out.println(Strings.cprefix + "Your config file is outdated and will be updated automatically to version " + version);
+  				loadConfigBackup();
+  				System.out.println(Strings.cprefix + "Config backup has been taken");
+  				update();
+  				System.out.println(Strings.cprefix + "Config has been updated");
+  				return;
+  			}
+  		} catch (NullPointerException e) {
+  			System.out.println(Strings.cprefix + "The version number in the plugin.yml file is incorrect!");
+  		}
 						
         Data.enableMySQL = config.getBoolean("enableMySQL");
         Strings.supporterColor = ChatColor.translateAlternateColorCodes('&', config.getString("supporterColor"));
@@ -109,20 +124,6 @@ public class ConfigManager {
         Strings.sc_data_reset = ChatColor.translateAlternateColorCodes('&', config.getString("sc_data_reset"));
         Strings.sc_reload = ChatColor.translateAlternateColorCodes('&', config.getString("sc_reload"));
         Strings.footer = ChatColor.translateAlternateColorCodes('&', config.getString("footer"));
-        
-        //Updatechecker
-		try {
-			String version = Main.instance.getDescription().getVersion();
-			if(!(config.getString("configversion").equalsIgnoreCase(version))){
-				System.out.println(Strings.cprefix + "Your config file is outdated and will be updated automatically to version " + version);
-				loadConfigBackup();
-				System.out.println(Strings.cprefix + "Config backup has been taken");
-				update();
-				System.out.println(Strings.cprefix + "Config has been updated");
-			}
-		} catch (NullPointerException e) {
-			System.out.println(Strings.cprefix + "The version number in the plugin.yml file is incorrect!");
-		}
 	}
 	
 	public static void loadConfigBackup(){
