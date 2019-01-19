@@ -150,7 +150,7 @@ public class Support implements CommandExecutor{
 					if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.data.*") || p.hasPermission("supportchat.data.reset")) {
 						if(Data.enableMySQL) {
 							MySQLData.resetSupports();
-							p.sendMessage(Strings.dataSupportsReset);
+							p.sendMessage(Strings.prefix + Strings.dataSupportsReset);
 						} else {
 							p.sendMessage(Strings.prefix + Strings.mysqlNotEnabled);
 						}
