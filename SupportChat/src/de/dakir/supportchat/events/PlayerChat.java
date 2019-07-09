@@ -24,8 +24,8 @@ public class PlayerChat implements Listener {
         		namecolor = Strings.supporterColor;
         	}
         	
-        	p.sendMessage(Strings.prefix + namecolor + p.getName() + " §8\u00BB " + Strings.chatColor + e.getMessage());
-        	HexxAPI.getSupportChatPartner(p).sendMessage(Strings.prefix + namecolor + p.getName() + " §8\u00BB " + Strings.chatColor + e.getMessage());
+        	p.sendMessage(Strings.chatFormat.replace("%prefix%", Strings.prefix).replace("%nameColor%", namecolor).replace("%player%", p.getName()).replace("%msg%", Strings.chatColor + e.getMessage()));
+        	HexxAPI.getSupportChatPartner(p).sendMessage(Strings.chatFormat.replace("%prefix%", Strings.prefix).replace("%nameColor%", namecolor).replace("%player%", p.getName()).replace("%msg%", Strings.chatColor + e.getMessage()));
         	e.setCancelled(true);
         }
 	}
