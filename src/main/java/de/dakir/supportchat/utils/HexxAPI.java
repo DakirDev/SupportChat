@@ -4,6 +4,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.UUID;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -107,7 +109,9 @@ public class HexxAPI {
             return;
         }
 
-        if (PluginManager.nmsver.startsWith("v1_12_") || PluginManager.nmsver.startsWith("v1_13_") || PluginManager.nmsver.startsWith("v1_14_") || PluginManager.nmsver.startsWith("v1_15_")) {
+        if (PluginManager.nmsver.startsWith("v1_16_")) {
+            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(message));
+        } else if (PluginManager.nmsver.startsWith("v1_12_") || PluginManager.nmsver.startsWith("v1_13_") || PluginManager.nmsver.startsWith("v1_14_") || PluginManager.nmsver.startsWith("v1_15_")) {
             sendActionBarPost112(player, message);
         } else {
             sendActionBarPre112(player, message);
