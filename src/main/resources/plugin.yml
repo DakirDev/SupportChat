@@ -1,0 +1,9 @@
+name: SupportChat
+main: de.dakir.supportchat.Main
+version: ${project.version}
+author: Dakir
+api-version: 1.13
+
+commands:
+  support:
+    aliases: [sup, sc]
