@@ -10,100 +10,100 @@ import org.bukkit.entity.Player;
 import de.dakir.supportchat.PluginManager;
 
 public class HexxAPI {
-	
-	public static void sendSupportMessage(String message){
-		for(Player p : Bukkit.getOnlinePlayers()){
-			if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.open")){
-				p.sendMessage(Strings.prefix + message);
-				sendActionBar(p, Strings.prefix + message);
-			}
-		}
-	}
-	
-	public static boolean isSupporterOnline(){
-		boolean online = false;
-		for(Player p : Bukkit.getOnlinePlayers()){
-			if(p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.open")){
-				online = true;
-			}
-		}
-		return online;
-	}
-	
-	public static Player getSupportChatPartner(Player p){
-	    if(Data.inSupport.containsKey(p.getUniqueId())){
-	    	return Bukkit.getPlayer(Data.inSupport.get(p.getUniqueId()));
-	    }
-	    for(UUID uuid : Data.inSupport.keySet()){
-	    	if(Data.inSupport.get(uuid).equals(p.getUniqueId())){
-	    		return Bukkit.getPlayer(uuid);
-	    	}
-	    }
-	    return null;
-	}
-	
-	public static boolean isInSupportChat(Player p){
-	    if((Data.inSupport.containsKey(p.getUniqueId()) || (Data.inSupport.containsValue(p.getUniqueId())))){
-	    	return true;
-	    }else{
-	    	return false;
-	    }
-	}
-	
-	public static void closeSupportChat(Player p){
-	    if(isInSupportChat(p)){
-	    	if(Data.inSupport.containsKey(p.getUniqueId())){
-	    		Bukkit.getPlayer(Data.inSupport.get(p.getUniqueId())).sendMessage(Strings.prefix + Strings.closeSupportChat);
-        		p.sendMessage(Strings.prefix + Strings.closeSupportChat);
-		        Data.inSupport.remove(p.getUniqueId());
-	    	}else{
-		        for(UUID uuid : Data.inSupport.keySet()){
-		        	if(Data.inSupport.get(uuid).equals(p.getUniqueId())){
-		        		Data.inSupport.remove(uuid);
-		        		Bukkit.getPlayer(uuid).sendMessage(Strings.prefix + Strings.closeSupportChat);
-		        		p.sendMessage(Strings.prefix + Strings.closeSupportChat);
-		        	}
-		        }
-	    	}
-	    }
-	}
-	
-	public static void openSupportChat(Player supporter, Player spieler){
-		if(HexxAPI.isInSupportChat(supporter)){
-			supporter.sendMessage(Strings.prefix + Strings.inSupportChat);
-		}else if(HexxAPI.isInSupportChat(spieler)){
-			supporter.sendMessage(Strings.prefix + Strings.playerIsInSupportChat.replace("%player%", spieler.getName()));
-		}else{
-			if(Data.supports.contains(spieler.getUniqueId())){
-				Data.supports.remove(spieler.getUniqueId());
-			}
-			Data.inSupport.put(supporter.getUniqueId(), spieler.getUniqueId());
-			
-			if(Data.enableMySQL) {
-				if((!(MySQLData.isPlayerExists(supporter.getUniqueId().toString()))) && (supporter.hasPermission("supportchat.*") || supporter.hasPermission("supportchat.use") || supporter.hasPermission("supportchat.open"))){
-					MySQLData.createPlayer(supporter.getUniqueId());
-					MySQLData.addSupport(supporter.getUniqueId());
-				}else{
-					MySQLData.addSupport(supporter.getUniqueId());
-					MySQLData.updateName(supporter.getUniqueId());
-				}
-			}
-			
-			spieler.sendMessage(Strings.prefix + Strings.openSupportChat);
-			spieler.sendMessage(Strings.prefix + Strings.openSupportChat_head.replace("%player%", supporter.getName()));
-			spieler.sendMessage(Strings.prefix + Strings.openSupportChat_user.replace("%player%", spieler.getName()));
-			spieler.sendMessage(Strings.prefix + Strings.openSupportChat_space);
-			spieler.sendMessage(Strings.prefix + Strings.openSupportChat_hellomessage.replace("%player%", supporter.getName()));
-			supporter.sendMessage(Strings.prefix + Strings.openSupportChat);
-			supporter.sendMessage(Strings.prefix + Strings.openSupportChat_head.replace("%player%", supporter.getName()));
-			supporter.sendMessage(Strings.prefix + Strings.openSupportChat_user.replace("%player%", spieler.getName()));
-			supporter.sendMessage(Strings.prefix + Strings.openSupportChat_space);
-			supporter.sendMessage(Strings.prefix + Strings.openSupportChat_hellomessage.replace("%player%", supporter.getName()));
-		}
-	}
-	
-	public static void sendActionBar(Player player, String message) {
-		if (!player.isOnline()) {
+
+    public static void sendSupportMessage(String message) {
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            if (p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.open")) {
+                p.sendMessage(Strings.prefix + message);
+                sendActionBar(p, Strings.prefix + message);
+            }
+        }
+    }
+
+    public static boolean isSupporterOnline() {
+        boolean online = false;
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            if (p.hasPermission("supportchat.*") || p.hasPermission("supportchat.use") || p.hasPermission("supportchat.open")) {
+                online = true;
+            }
+        }
+        return online;
+    }
+
+    public static Player getSupportChatPartner(Player p) {
+        if (Data.inSupport.containsKey(p.getUniqueId())) {
+            return Bukkit.getPlayer(Data.inSupport.get(p.getUniqueId()));
+        }
+        for (UUID uuid : Data.inSupport.keySet()) {
+            if (Data.inSupport.get(uuid).equals(p.getUniqueId())) {
+                return Bukkit.getPlayer(uuid);
+            }
+        }
+        return null;
+    }
+
+    public static boolean isInSupportChat(Player p) {
+        if ((Data.inSupport.containsKey(p.getUniqueId()) || (Data.inSupport.containsValue(p.getUniqueId())))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void closeSupportChat(Player p) {
+        if (isInSupportChat(p)) {
+            if (Data.inSupport.containsKey(p.getUniqueId())) {
+                Bukkit.getPlayer(Data.inSupport.get(p.getUniqueId())).sendMessage(Strings.prefix + Strings.closeSupportChat);
+                p.sendMessage(Strings.prefix + Strings.closeSupportChat);
+                Data.inSupport.remove(p.getUniqueId());
+            } else {
+                for (UUID uuid : Data.inSupport.keySet()) {
+                    if (Data.inSupport.get(uuid).equals(p.getUniqueId())) {
+                        Data.inSupport.remove(uuid);
+                        Bukkit.getPlayer(uuid).sendMessage(Strings.prefix + Strings.closeSupportChat);
+                        p.sendMessage(Strings.prefix + Strings.closeSupportChat);
+                    }
+                }
+            }
+        }
+    }
+
+    public static void openSupportChat(Player supporter, Player spieler) {
+        if (HexxAPI.isInSupportChat(supporter)) {
+            supporter.sendMessage(Strings.prefix + Strings.inSupportChat);
+        } else if (HexxAPI.isInSupportChat(spieler)) {
+            supporter.sendMessage(Strings.prefix + Strings.playerIsInSupportChat.replace("%player%", spieler.getName()));
+        } else {
+            if (Data.supports.contains(spieler.getUniqueId())) {
+                Data.supports.remove(spieler.getUniqueId());
+            }
+            Data.inSupport.put(supporter.getUniqueId(), spieler.getUniqueId());
+
+            if (Data.enableMySQL) {
+                if ((!(MySQLData.isPlayerExists(supporter.getUniqueId().toString()))) && (supporter.hasPermission("supportchat.*") || supporter.hasPermission("supportchat.use") || supporter.hasPermission("supportchat.open"))) {
+                    MySQLData.createPlayer(supporter.getUniqueId());
+                    MySQLData.addSupport(supporter.getUniqueId());
+                } else {
+                    MySQLData.addSupport(supporter.getUniqueId());
+                    MySQLData.updateName(supporter.getUniqueId());
+                }
+            }
+
+            spieler.sendMessage(Strings.prefix + Strings.openSupportChat);
+            spieler.sendMessage(Strings.prefix + Strings.openSupportChat_head.replace("%player%", supporter.getName()));
+            spieler.sendMessage(Strings.prefix + Strings.openSupportChat_user.replace("%player%", spieler.getName()));
+            spieler.sendMessage(Strings.prefix + Strings.openSupportChat_space);
+            spieler.sendMessage(Strings.prefix + Strings.openSupportChat_hellomessage.replace("%player%", supporter.getName()));
+            supporter.sendMessage(Strings.prefix + Strings.openSupportChat);
+            supporter.sendMessage(Strings.prefix + Strings.openSupportChat_head.replace("%player%", supporter.getName()));
+            supporter.sendMessage(Strings.prefix + Strings.openSupportChat_user.replace("%player%", spieler.getName()));
+            supporter.sendMessage(Strings.prefix + Strings.openSupportChat_space);
+            supporter.sendMessage(Strings.prefix + Strings.openSupportChat_hellomessage.replace("%player%", supporter.getName()));
+        }
+    }
+
+    public static void sendActionBar(Player player, String message) {
+        if (!player.isOnline()) {
             return;
         }
 
@@ -112,11 +112,11 @@ public class HexxAPI {
         } else {
             sendActionBarPre112(player, message);
         }
-	}
-	
-	private static void sendActionBarPost112(Player player, String message) {
-		String nmsver = PluginManager.nmsver;
-		if (!player.isOnline()) {
+    }
+
+    private static void sendActionBarPost112(Player player, String message) {
+        String nmsver = PluginManager.nmsver;
+        if (!player.isOnline()) {
             return;
         }
 
@@ -148,11 +148,11 @@ public class HexxAPI {
             ex.printStackTrace();
             PluginManager.works = false;
         }
-	}
-	
-	private static void sendActionBarPre112(Player player, String message) {
-		String nmsver = PluginManager.nmsver;
-		if (!player.isOnline()) {
+    }
+
+    private static void sendActionBarPre112(Player player, String message) {
+        String nmsver = PluginManager.nmsver;
+        if (!player.isOnline()) {
             return;
         }
 
@@ -184,5 +184,5 @@ public class HexxAPI {
             ex.printStackTrace();
             PluginManager.works = false;
         }
-	}
+    }
 }
