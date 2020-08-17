@@ -189,4 +189,11 @@ public class HexxAPI {
             PluginManager.works = false;
         }
     }
+
+    public static void updateAliasesString() {
+        Data.aliasesString = "support";
+        for (String s : Data.aliases.split(",")) {
+            Data.aliasesString = Data.aliasesString + "|" + s;
+        }
+    }
 }

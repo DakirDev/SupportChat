@@ -1,5 +1,6 @@
 package de.dakir.supportchat;
 
+import co.aikar.commands.PaperCommandManager;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,10 +14,12 @@ import de.dakir.supportchat.utils.Strings;
 public class Main extends JavaPlugin {
 
     public static Plugin instance;
+    public static PaperCommandManager manager;
 
     @Override
     public void onEnable() {
         Main.instance = this;
+        Main.manager = new PaperCommandManager(this);
 
         ConfigManager.checkFiles();
         ConfigManager.load();

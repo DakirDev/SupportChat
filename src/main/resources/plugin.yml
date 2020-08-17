@@ -4,6 +4,50 @@ version: ${project.version}
 author: Dakir
 api-version: 1.13
 
-commands:
-  support:
-    aliases: [sup, sc]
+permissions:
+  supportchat.*:
+    description: Gives access to all SupportChat permissions
+    default: op
+    children:
+      supportchat.use: true
+      supportchat.data.*: true
+      supportchat.reload: true
+  supportchat.use:
+    description: Allows the user to use the basic support commands
+    children:
+      supportchat.close: true
+      supportchat.help: true
+      supportchat.list: true
+      supportchat.open: true
+  supportchat.data.*:
+    description: Allows the user to use the support data commands
+    children:
+      supportchat.data.add: true
+      supportchat.data.delete: true
+      supportchat.data.list: true
+      supportchat.data.remove: true
+      supportchat.data.reset: true
+      supportchat.data.set: true
+      supportchat.data.stats: true
+  supportchat.close:
+    description: Allows the user to use the command /support close
+  supportchat.help:
+    description: Allows the user to use the command /support help
+  supportchat.list:
+    description: Allows the user to use the command /support list
+  supportchat.open:
+    description: Allows the user to use the command /support open
+  supportchat.data.add:
+    description: Allows the user to use the command /support data add
+  supportchat.data.delete:
+    description: Allows the user to use the command /support data delete
+  supportchat.data.list:
+    description: Allows the user to use the command /support data list
+  supportchat.data.remove:
+    description: Allows the user to use the command /support data remove
+  supportchat.data.reset:
+    description: Allows the user to use the command /support data reset
+  supportchat.data.set:
+    description: Allows the user to use the command /support data set
+  supportchat.data.stats:
+    description: Allows the user to use the command /support data stats

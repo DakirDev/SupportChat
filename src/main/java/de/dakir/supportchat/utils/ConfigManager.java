@@ -29,6 +29,7 @@ public class ConfigManager {
         if (!file1.exists()) {
             try (InputStream in = Main.instance.getResource("config.yml")) {
                 Files.copy(in, file1.toPath());
+                System.out.println(Strings.cprefix + "The file 'config.yml' has been created.");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -38,32 +39,24 @@ public class ConfigManager {
     public static void load() {
         File file = new File(Main.instance.getDataFolder(), "config.yml");
 
-        if (!file.exists()) {
-            try (InputStream in = Main.instance.getResource("config.yml")) {
-                Files.copy(in, file.toPath());
-                System.out.println(Strings.cprefix + "The file 'config.yml' has been created.");
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        }
-
         FileConfiguration config = YamlConfiguration.loadConfiguration(new File("plugins/SupportChat/config.yml"));
 
         //Updatechecker
         try {
             String version = Main.instance.getDescription().getVersion();
             if (!(config.getString("configversion").equalsIgnoreCase(version))) {
-                System.out.println(Strings.cprefix + "Your config file is outdated and will be updated automatically to version " + version);
+                System.out.println(Strings.cprefix + "Your config file is outdated and will be updated automatically to version " + version + "!");
                 loadConfigBackup();
-                System.out.println(Strings.cprefix + "Config backup has been taken");
+                System.out.println(Strings.cprefix + "Config backup has been taken.");
                 update();
-                System.out.println(Strings.cprefix + "Config has been updated");
+                System.out.println(Strings.cprefix + "Config has been updated.");
                 return;
             }
         } catch (NullPointerException e) {
             System.out.println(Strings.cprefix + "The version number in the plugin.yml file is incorrect!");
         }
 
+        Data.aliases = config.getString("aliases");
         Data.enableMySQL = config.getBoolean("enableMySQL");
         Strings.supporterColor = ChatColor.translateAlternateColorCodes('&', config.getString("supporterColor"));
         Strings.userColor = ChatColor.translateAlternateColorCodes('&', config.getString("userColor"));
@@ -131,6 +124,7 @@ public class ConfigManager {
         FileConfiguration config = YamlConfiguration.loadConfiguration(new File("plugins/SupportChat/config.yml"));
         ConfigBackup.configversion = Main.instance.getDescription().getVersion();
 
+        if (config.contains("aliases")) ConfigBackup.aliases = config.getString("aliases");
         if (config.contains("prefix")) ConfigBackup.prefix = config.getString("prefix");
         if (config.contains("enableMySQL")) ConfigBackup.enableMySQL = config.getBoolean("enableMySQL");
         if (config.contains("supporterColor")) ConfigBackup.supporterColor = config.getString("supporterColor");
@@ -228,6 +222,7 @@ public class ConfigManager {
 
         setVersion("configversion", ConfigBackup.configversion);
 
+        setString("aliases", ConfigBackup.aliases);
         setString("prefix", ConfigBackup.prefix);
         setBoolean("enableMySQL", ConfigBackup.enableMySQL);
         setString("supporterColor", ConfigBackup.supporterColor);

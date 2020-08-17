@@ -41,7 +41,9 @@ public class PluginManager {
     }
 
     public static void registerCommands() {
-        Bukkit.getPluginCommand("support").setExecutor(new Support());
+        HexxAPI.updateAliasesString();
+        Main.manager.getCommandReplacements().addReplacement("command.support", Data.aliasesString);
+        Main.manager.registerCommand(new Support());
     }
 
     public static void registerScheduler() {
