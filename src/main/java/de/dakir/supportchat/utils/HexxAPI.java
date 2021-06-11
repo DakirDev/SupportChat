@@ -109,7 +109,7 @@ public class HexxAPI {
             return;
         }
 
-        if (PluginManager.nmsver.startsWith("v1_16_")) {
+        if (PluginManager.nmsver.startsWith("v1_16_") || PluginManager.nmsver.startsWith("v1_17_")) {
             player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(message));
         } else if (PluginManager.nmsver.startsWith("v1_12_") || PluginManager.nmsver.startsWith("v1_13_") || PluginManager.nmsver.startsWith("v1_14_") || PluginManager.nmsver.startsWith("v1_15_")) {
             sendActionBarPost112(player, message);
